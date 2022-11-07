@@ -7,6 +7,7 @@ const routes = require("./src/routes");
 const app = express();
 
 const db = require("./src/db/db");
+const errorHandler = require("./src/utils/error-handler");
 const User = db.User;
 
 const userTest = async () => {
@@ -39,6 +40,8 @@ app.use(bodyParser.json({ limit: "100mb" }));
 app.use(bodyParser.urlencoded({ limit: "100mb", extended: true }));
 app.use(cors());
 app.use("/", routes);
+
+app.use(errorHandler);
 
 const PORT = config.PORT || 3000;
 app.listen(PORT, () => {

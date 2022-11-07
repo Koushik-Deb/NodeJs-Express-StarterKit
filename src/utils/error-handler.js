@@ -1,4 +1,4 @@
-const config = require("../config/base-config");
+const config = require("../../config/base-config");
 
 module.exports = errorHandler;
 
